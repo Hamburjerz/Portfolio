@@ -14,15 +14,16 @@
       href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="assets/fonts/fontawesome-all.min.css" />
+    <link rel="stylesheet" href="assets/styles.css" />
   </head>
   <body>
     <!-- LOADER -->
-    <!-- <div id="loader">
+    <div id="loader">
       <div class="loader-logo">&lt;Lloyd /&gt;</div>
       <div class="loader-bar"><div class="loader-fill"></div></div>
       <div class="loader-text">Initializing portfolio...</div>
-    </div> -->
+    </div>
 
     <!-- BACKGROUND -->
     <div class="bg-grid"></div>
@@ -147,6 +148,9 @@
               <span class="tag">JavaScript</span>
               <span class="tag">Java</span>
               <span class="tag">Python</span>
+              <span class="tag">Visual Basic</span>
+              <span class="tag">C#</span>
+              <span class="tag">C++</span>
             </div>
           </div>
         </div>
@@ -167,18 +171,20 @@
           <!-- Frontend -->
           <div class="glass-card skill-card reveal delay-1">
             <div class="skill-cat">
-              <div class="skill-cat-icon icon-fe">🎨</div>
+              <div class="skill-cat-icon icon-fe">
+                <i class="fas fa-paint-brush"></i>
+              </div>
               <div class="skill-cat-name">Frontend</div>
             </div>
             <div class="skill-list">
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">JavaScript</span>
+                  <span class="skill-name">HTML5 / CSS3</span>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">AJAX</span>
+                  <span class="skill-name">JavaScript</span>
                 </div>
               </div>
               <div class="skill-item">
@@ -206,7 +212,9 @@
           <!-- Backend -->
           <div class="glass-card skill-card reveal delay-2">
             <div class="skill-cat">
-              <div class="skill-cat-icon icon-be">⚙️</div>
+              <div class="skill-cat-icon icon-be">
+                <i class="fas fa-code"></i>
+              </div>
               <div class="skill-cat-name">Backend</div>
             </div>
             <div class="skill-list">
@@ -217,12 +225,27 @@
               </div>
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">Supabase</span>
+                  <span class="skill-name">Python</span>
                 </div>
               </div>
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">Node.js</span>
+                  <span class="skill-name">JavaScript</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">Java</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">VB.Net</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">C++</span>
                 </div>
               </div>
             </div>
@@ -230,8 +253,10 @@
           <!-- Database & Tools -->
           <div class="glass-card skill-card reveal delay-3">
             <div class="skill-cat">
-              <div class="skill-cat-icon icon-db">🗄️</div>
-              <div class="skill-cat-name">Database and Tools</div>
+              <div class="skill-cat-icon icon-db">
+                <i class="fas fa-database"></i>
+              </div>
+              <div class="skill-cat-name">Database</div>
             </div>
             <div class="skill-list">
               <div class="skill-item">
@@ -246,9 +271,19 @@
               </div>
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">Git</span>
+                  <span class="skill-name">NoSQL</span>
                 </div>
               </div>
+            </div>
+          </div>
+          <div class="glass-card skill-card reveal delay-3">
+            <div class="skill-cat">
+              <div class="skill-cat-icon icon-db">
+                <i class="fas fa-tools"></i>
+              </div>
+              <div class="skill-cat-name">Tools</div>
+            </div>
+            <div class="skill-list">
               <div class="skill-item">
                 <div class="skill-row">
                   <span class="skill-name">VS Code</span>
@@ -256,7 +291,22 @@
               </div>
               <div class="skill-item">
                 <div class="skill-row">
-                  <span class="skill-name">JetBrains</span>
+                  <span class="skill-name">Pycharm</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">PhpMyAdmin</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">Supabase</span>
+                </div>
+              </div>
+              <div class="skill-item">
+                <div class="skill-row">
+                  <span class="skill-name">Hostinger</span>
                 </div>
               </div>
             </div>
@@ -282,6 +332,7 @@
           <button class="filter-btn" data-filter="edu">Education</button>
           <button class="filter-btn" data-filter="cms">CMS / Admin</button>
           <button class="filter-btn" data-filter="web">Web Apps</button>
+          <button class="filter-btn" data-filter="iot">IoT</button>
         </div>
         <div class="projects-grid" id="projects-grid">
           <div class="glass-card project-card reveal delay-2" data-cat="edu">
@@ -303,23 +354,20 @@
             </div>
             <div class="project-name">Fun Reading Adventure</div>
             <p class="project-desc">
-              An innovative gamified reading platform designed specifically for grade school students,
-              featuring adaptive multi-level reading activities, interactive comprehension exercises,
-              progress tracking with rewards, and an engaging adventure-themed UI that makes learning
-              fun and motivates continuous reading improvement.
+              An innovative reading platform designed for grade school students,
+              featuring adaptive multi-level reading activities, interactive
+              comprehension exercises, progress tracking, and an engaging
+              adventure-themed UI.
             </p>
             <div class="project-features">
               <span class="feature-tag">Multi-Level Reading</span>
               <span class="feature-tag">Comprehension Exercises</span>
               <span class="feature-tag">Gamified UI</span>
-              <span class="feature-tag">Mobile-Responsive</span>
             </div>
             <div class="project-stack">
-              <span class="stack-badge">PHP</span>
-              <span class="stack-badge">MySQL</span>
+              <span class="stack-badge">Node.js</span>
+              <span class="stack-badge">Express.js</span>
               <span class="stack-badge">JavaScript</span>
-              <span class="stack-badge">CSS3</span>
-              <span class="stack-badge">HTML5</span>
             </div>
             <div
               style="
@@ -343,11 +391,40 @@
                   padding: 0.55rem 1rem;
                 "
               >
-                🖥️ Live Preview
+                🖥️ Preview
               </button>
             </div>
           </div>
 
+          <div
+            class="glass-card project-card reveal delay-1"
+            data-cat="desktop"
+          >
+            <div class="project-header">
+              <div class="project-icon">🖥️</div>
+              <div class="project-links">
+                <a href="" target="_blank" class="project-link" title="GitHub"
+                  >GH</a
+                >
+                <a href="#" class="project-link" title="Download">⬇</a>
+              </div>
+            </div>
+            <div class="project-name">To-Do Application</div>
+            <p class="project-desc">
+              A desktop to-do application built with Electron.js, featuring a
+              simple interface, local storage for offline access.
+            </p>
+            <div class="project-features">
+              <span class="feature-tag">Local Storage</span>
+              <span class="feature-tag">Native UI</span>
+              <span class="feature-tag">Offline-First</span>
+            </div>
+            <div class="project-stack">
+              <span class="stack-badge">Electron.js</span>
+              <span class="stack-badge">JavaScript</span>
+              <span class="stack-badge">HTML/CSS</span>
+            </div>
+          </div>
           <div class="glass-card project-card reveal delay-3" data-cat="cms">
             <div class="project-header">
               <div class="project-icon">🏫</div>
@@ -367,10 +444,10 @@
             </div>
             <div class="project-name">DepEd CabCy Connect</div>
             <p class="project-desc">
-              A comprehensive digital transformation platform for the Department of Education – Cabanatuan City Division,
-              streamlining document tracking, HR services, leave applications, asset management, and communication
-              for over 2,100 personnel across 65 schools. Features automated workflows, real-time notifications,
-              and secure data management with role-based access control.
+              A digital platform for the Department of Education Cabanatuan City
+              Division, streamlining document tracking, HR services, and asset
+              management. Features automated workflows, real-time notifications,
+              and role-based access control.
             </p>
             <div class="project-features">
               <span class="feature-tag">Document Tracking</span>
@@ -382,115 +459,31 @@
               <span class="stack-badge">PHP</span>
               <span class="stack-badge">MySQL</span>
               <span class="stack-badge">JavaScript</span>
-              <span class="stack-badge">AJAX</span>
               <span class="stack-badge">Bootstrap</span>
-            </div>
-            <div
-              style="
-                margin-top: 1rem;
-                padding-top: 1rem;
-                border-top: 1px solid var(--glass-border);
-              "
-            >
-              <button
-                onclick="
-                  openPreview(
-                    'https://www.depedcabcyconnect.com/',
-                    'DepEd CabCy Connect',
-                  )
-                "
-                class="btn btn-ghost"
-                style="
-                  width: 100%;
-                  justify-content: center;
-                  font-size: 0.85rem;
-                  padding: 0.55rem 1rem;
-                "
-              >
-                🖥️ Live Preview
-              </button>
-            </div>
-          </div>
-
-          <div
-            class="glass-card project-card reveal delay-1"
-            data-cat="desktop"
-          >
-            <div class="project-header">
-              <div class="project-icon">🖥️</div>
-              <div class="project-links">
-                <a href="https://github.com/yourusername/orbit-desktop" target="_blank" class="project-link" title="GitHub">GH</a>
-                <a href="#" class="project-link" title="Download">⬇</a>
-              </div>
-            </div>
-            <div class="project-name">Orbit — Desktop Productivity</div>
-            <p class="project-desc">
-              A cross-platform desktop productivity application built with
-              Electron.js, featuring task management, note-taking, local data
-              persistence, and a native-like UI experience.
-            </p>
-            <div class="project-features">
-              <span class="feature-tag">Cross-Platform</span>
-              <span class="feature-tag">Local Storage</span>
-              <span class="feature-tag">Native UI</span>
-              <span class="feature-tag">Offline-First</span>
-            </div>
-            <div class="project-stack">
-              <span class="stack-badge">Electron.js</span>
-              <span class="stack-badge">JavaScript</span>
-              <span class="stack-badge">HTML/CSS</span>
-              <span class="stack-badge">Node.js</span>
-            </div>
-          </div>
-
-          <div class="glass-card project-card reveal delay-2" data-cat="cms">
-            <div class="project-header">
-              <div class="project-icon">📊</div>
-              <div class="project-links">
-                <a href="https://github.com/yourusername/portfolio-cms" target="_blank" class="project-link" title="GitHub">GH</a>
-                <a href="#" class="project-link" title="Live">↗</a>
-              </div>
-            </div>
-            <div class="project-name">Portfolio CMS &amp; Admin</div>
-            <p class="project-desc">
-              A dynamic content management system powering a portfolio site with
-              analytics overview, user management, content editing, and a
-              real-time admin dashboard.
-            </p>
-            <div class="project-features">
-              <span class="feature-tag">Content Editor</span>
-              <span class="feature-tag">Analytics</span>
-              <span class="feature-tag">User Control</span>
-              <span class="feature-tag">WYSIWYG</span>
-            </div>
-            <div class="project-stack">
-              <span class="stack-badge">React</span>
-              <span class="stack-badge">PHP</span>
-              <span class="stack-badge">MySQL</span>
-              <span class="stack-badge">Vite</span>
-              <span class="stack-badge">Tailwind</span>
             </div>
           </div>
 
           <div class="glass-card project-card reveal delay-3" data-cat="web">
             <div class="project-header">
-              <div class="project-icon">🛡️</div>
+              <div class="project-icon">👨🏻‍💻</div>
               <div class="project-links">
-                <a href="https://github.com/yourusername/authforge" target="_blank" class="project-link" title="GitHub">GH</a>
+                <a href="" target="_blank" class="project-link" title="GitHub"
+                  >GH</a
+                >
                 <a href="#" class="project-link" title="Live">↗</a>
               </div>
             </div>
-            <div class="project-name">AuthForge — Auth System</div>
+            <div class="project-name">Thesis Collaboration</div>
             <p class="project-desc">
-              A reusable, modular authentication framework with JWT tokens,
-              session handling, OAuth integration, email verification, and
-              granular role/permission control.
+              An online platform for thesis management and collaboration,
+              allowing students and advisors to track progress, share documents,
+              and schedule defenses throughout the research process.
             </p>
             <div class="project-features">
-              <span class="feature-tag">JWT</span>
-              <span class="feature-tag">OAuth</span>
-              <span class="feature-tag">Email Verify</span>
-              <span class="feature-tag">Permissions</span>
+              <span class="feature-tag">User Management</span>
+              <span class="feature-tag">Document Sharing</span>
+              <span class="feature-tag">Email Verification</span>
+              <span class="feature-tag">Scheduling</span>
             </div>
             <div class="project-stack">
               <span class="stack-badge">PHP</span>
@@ -500,32 +493,57 @@
             </div>
           </div>
 
-          <div class="glass-card project-card reveal delay-4" data-cat="web">
+          <div class="glass-card project-card delay-2" data-cat="iot">
             <div class="project-header">
-              <div class="project-icon">📱</div>
+              <div class="project-icon">💧</div>
               <div class="project-links">
-                <a href="https://github.com/yourusername/taskflow" target="_blank" class="project-link" title="GitHub">GH</a>
-                <a href="https://taskflow-demo.vercel.app" target="_blank" class="project-link" title="Live">↗</a>
+                <a href="#projects" class="project-link" title="Prototype"
+                  >IoT</a
+                >
               </div>
             </div>
-            <div class="project-name">TaskFlow — Project Management</div>
+            <div class="project-name">
+              Chico River Water Level Monitoring System with SMS Notification
+              Technology
+            </div>
             <p class="project-desc">
-              A modern project management application built with React and Node.js,
-              featuring real-time collaboration, drag-and-drop task boards, time tracking,
-              and team analytics dashboard.
+              An Arduino prototype project for monitoring Chico River water
+              levels and sending SMS alerts when readings reach warning
+              thresholds. The system combines sensor input, indicator lights,
+              buzzer alerts, and SMS notification technology.
             </p>
             <div class="project-features">
-              <span class="feature-tag">Real-Time</span>
-              <span class="feature-tag">Drag & Drop</span>
-              <span class="feature-tag">Team Analytics</span>
-              <span class="feature-tag">Time Tracking</span>
+              <span class="feature-tag">Water Level Sensing</span>
+              <span class="feature-tag">SMS Alerts</span>
+              <span class="feature-tag">Arduino Prototype</span>
+              <span class="feature-tag">Buzzer Warning</span>
             </div>
             <div class="project-stack">
-              <span class="stack-badge">React</span>
-              <span class="stack-badge">Node.js</span>
-              <span class="stack-badge">Socket.io</span>
-              <span class="stack-badge">MongoDB</span>
-              <span class="stack-badge">Tailwind CSS</span>
+              <span class="stack-badge">Arduino</span>
+              <span class="stack-badge">GSM Module</span>
+              <span class="stack-badge">Water Sensor</span>
+              <span class="stack-badge">C++</span>
+              <span class="stack-badge">Fritzing</span>
+            </div>
+            <div
+              style="
+                margin-top: 1rem;
+                padding-top: 1rem;
+                border-top: 1px solid var(--glass-border);
+              "
+            >
+              <button
+                onclick="openAguaPreview()"
+                class="btn btn-ghost"
+                style="
+                  width: 100%;
+                  justify-content: center;
+                  font-size: 0.85rem;
+                  padding: 0.55rem 1rem;
+                "
+              >
+                🖥️ Preview
+              </button>
             </div>
           </div>
         </div>
@@ -537,9 +555,8 @@
       <div class="container">
         <div class="reveal" style="text-align: center; margin-bottom: 1rem">
           <div class="section-tag">Live Projects</div>
-          <h2 class="section-title">Real-Time <span>Showcase</span></h2>
           <p class="section-sub" style="margin: 0 auto">
-            These are live, deployed applications — interact with them directly
+            These are live, deployed applications interact with them directly
             below or click to open in fullscreen.
           </p>
         </div>
@@ -599,7 +616,7 @@
                     style="
                       width: 100%;
                       height: 100%;
-                      object-fit: cover;
+                      object-fit: contain;
                       object-position: top center;
                       display: block;
                     "
@@ -672,18 +689,6 @@
               </div>
               <div class="browser-bar">www.depedcabcyconnect.com</div>
               <div class="browser-actions">
-                <div
-                  class="browser-action"
-                  title="Fullscreen preview"
-                  onclick="
-                    openPreview(
-                      'https://www.depedcabcyconnect.com/',
-                      'DepEd CabCy Connect',
-                    )
-                  "
-                >
-                  ⛶
-                </div>
                 <a
                   href="https://www.depedcabcyconnect.com/"
                   target="_blank"
@@ -715,7 +720,7 @@
                     style="
                       width: 100%;
                       height: 100%;
-                      object-fit: cover;
+                      object-fit: contain;
                       object-position: top center;
                       display: block;
                     "
@@ -1158,6 +1163,6 @@
       </p>
     </footer>
 
-    <script src="script.js"></script>
+    <script src="assets/script.js"></script>
   </body>
 </html>
