@@ -471,13 +471,8 @@ section {
 
 .btn-ghost {
     background: transparent;
-<<<<<<< HEAD
     color: var(--text);
     border: 1px solid var(--text);
-=======
-    color: var(--bg);
-    border: 1px solid var(--glass-border);
->>>>>>> origin/main
     backdrop-filter: blur(10px);
 }
 
@@ -488,7 +483,6 @@ section {
     background: rgba(31, 111, 95, 0.05);
 }
 
-<<<<<<< HEAD
 .btn-open {
     background: transparent;
     color: var(--bg);
@@ -503,8 +497,6 @@ section {
     background: rgba(31, 111, 95, 0.05);
 }
 
-=======
->>>>>>> origin/main
 .btn-outline {
     background: transparent;
     color: var(--accent);

@@ -1,17 +1,10 @@
 // ─── LOADER ───
-<<<<<<< HEAD
+
 window.addEventListener("load", () => {
     setTimeout(() => {
         document.getElementById("loader").classList.add("hidden");
     }, 2000);
 });
-=======
-// window.addEventListener("load", () => {
-//     setTimeout(() => {
-//         document.getElementById("loader").classList.add("hidden");
-//     }, 2000);
-// });
->>>>>>> origin/main
 
 // ─── NAV TOGGLE ───
 const navToggle = document.getElementById("nav-toggle");
