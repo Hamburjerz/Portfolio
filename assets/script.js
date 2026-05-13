@@ -74,13 +74,10 @@ document.querySelectorAll(".skill-fill[data-w]").forEach((bar) => {
 
 // ─── TYPING EFFECT ───
 const words = [
-    "React Developer",
-    "PHP Engineer",
     "Full-Stack Builder",
     "UI/UX Thinker",
     "Electron.js Dev",
     "MySQL Architect",
-    "Auth System Builder",
 ];
 let wi = 0,
     ci = 0,

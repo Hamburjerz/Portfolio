@@ -21,7 +21,11 @@
     --text3: rgba(5, 10, 8, 0.68);
     --card: rgba(47, 160, 132, 0.08);
     --glow: rgba(47, 160, 132, 0.15);
-    --text-gray: #161616;
+    --text-gray: #1b1b1b;
+    --icon-blue: #2f80ed;
+    --icon-alert: #dc2626;
+    --icon-cyan: #0284c7;
+    --icon-red: #dc2626;
 }
 
 html {
@@ -340,22 +344,12 @@ section {
     font-family: "JetBrains Mono", monospace;
 }
 
-<<<<<<< HEAD
-.hero-badge::before {
-=======
-/* .hero-badge::before {
->>>>>>> origin/main
-    content: "";
-    width: 8px;
-    height: 8px;
-    border-radius: 50%;
-    background: var(--primary);
+.hero-badge i {
+    color: var(--accent);
+    font-size: 0.62rem;
+    filter: drop-shadow(0 0 8px rgba(111, 207, 151, 0.85));
     animation: pulse-dot 2s ease-in-out infinite;
-<<<<<<< HEAD
 }
-=======
-} */
->>>>>>> origin/main
 
 @keyframes pulse-dot {
 
@@ -459,8 +453,8 @@ section {
 }
 
 .btn-primary {
-    background: linear-gradient(135deg, var(--primary), var(--accent));
-    color: var(--text-gray);
+    background: #1f6f5f;
+    color: var(--bg);
     box-shadow: 0 0 30px rgba(31, 111, 95, 0.3);
 }
 
@@ -471,7 +465,7 @@ section {
 
 .btn-ghost {
     background: transparent;
-    color: var(--text);
+    color: var(--text-gray);
     border: 1px solid var(--text);
     backdrop-filter: blur(10px);
 }
@@ -910,7 +904,40 @@ section {
 }
 
 .project-icon {
-    font-size: 2rem;
+    width: 48px;
+    height: 48px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 111, 95, 0.1);
+    color: var(--primary);
+    font-size: 1.4rem;
+}
+
+.project-card[data-cat="edu"] .project-icon {
+    background: rgba(47, 128, 237, 0.12);
+    color: var(--icon-blue);
+}
+
+.project-card[data-cat="desktop"] .project-icon {
+    background: rgba(31, 111, 95, 0.12);
+    color: var(--primary);
+}
+
+.project-card[data-cat="cms"] .project-icon {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--icon-alert);
+}
+
+.project-card[data-cat="web"] .project-icon {
+    background: rgba(47, 160, 132, 0.14);
+    color: var(--secondary);
+}
+
+.project-card[data-cat="iot"] .project-icon {
+    background: rgba(2, 132, 199, 0.12);
+    color: var(--icon-cyan);
 }
 
 .project-links {
@@ -937,6 +964,12 @@ section {
     border-color: var(--primary);
     color: var(--primary);
     background: rgba(31, 111, 95, 0.1);
+}
+
+.project-preview-btn i,
+.project-link i,
+.btn i {
+    color: currentColor;
 }
 
 .project-name {
@@ -990,6 +1023,31 @@ section {
 }
 
 /* ─── WORKFLOW TIMELINE ─── */
+.project-preview-btn {
+    width: 100%;
+    justify-content: center;
+    padding: 0.72rem 1rem;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--bg);
+    box-shadow: 0 10px 22px rgba(31, 111, 95, 0.2);
+    font-size: 0.84rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+.project-preview-btn:hover {
+    transform: translateY(-2px);
+    border-color: var(--accent);
+    background: var(--accent);
+    box-shadow: 0 14px 28px rgba(31, 111, 95, 0.28);
+}
+
+.project-preview-btn:focus-visible {
+    outline: 2px solid var(--highlight);
+    outline-offset: 3px;
+}
+
 #workflow {
     padding: 8rem 0;
 }
@@ -1036,6 +1094,11 @@ section {
     box-shadow: 0 0 20px rgba(31, 111, 95, 0.3);
     z-index: 1;
     position: relative;
+}
+
+.timeline-dot i {
+    color: var(--bg);
+    text-shadow: 0 1px 8px rgba(5, 10, 8, 0.28);
 }
 
 .timeline-content {
@@ -1088,8 +1151,41 @@ section {
 }
 
 .ai-feature-icon {
+    width: 42px;
+    height: 42px;
+    border-radius: 10px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(31, 111, 95, 0.1);
+    color: var(--primary);
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
+}
+
+.ai-feature:nth-child(2) .ai-feature-icon {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--icon-alert);
+}
+
+.ai-feature:nth-child(3) .ai-feature-icon {
+    background: rgba(47, 128, 237, 0.12);
+    color: var(--icon-blue);
+}
+
+.ai-feature:nth-child(4) .ai-feature-icon {
+    background: rgba(2, 132, 199, 0.12);
+    color: var(--icon-cyan);
+}
+
+.ai-feature:nth-child(5) .ai-feature-icon {
+    background: rgba(31, 111, 95, 0.12);
+    color: var(--secondary);
+}
+
+.ai-feature:nth-child(6) .ai-feature-icon {
+    background: rgba(220, 38, 38, 0.1);
+    color: var(--icon-red);
 }
 
 .ai-feature h4 {
@@ -1163,6 +1259,14 @@ section {
     color: var(--primary);
 }
 
+.t-output i {
+    color: var(--accent);
+}
+
+.t-var i {
+    color: var(--icon-alert);
+}
+
 .t-cmd {
     color: #e2e8f0;
 }
@@ -1231,6 +1335,19 @@ section {
     justify-content: center;
     font-size: 1.2rem;
     flex-shrink: 0;
+    color: var(--primary);
+}
+
+.contact-item:nth-child(2) .contact-icon {
+    background: rgba(2, 132, 199, 0.12);
+    border-color: rgba(2, 132, 199, 0.22);
+    color: var(--icon-cyan);
+}
+
+.contact-item:nth-child(3) .contact-icon {
+    background: rgba(220, 38, 38, 0.1);
+    border-color: rgba(220, 38, 38, 0.2);
+    color: var(--icon-alert);
 }
 
 .contact-item-text {
@@ -1402,8 +1519,11 @@ section {
 }
 
 .browser-bar::before {
-    content: "🔒";
+    content: "\f023";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
     font-size: 0.7rem;
+    color: var(--accent);
 }
 
 .browser-actions {
@@ -1615,6 +1735,7 @@ section {
 }
 
 footer {
+    background-color: var(--bg);
     border-top: 1px solid var(--glass-border);
     padding: 2rem;
     text-align: center;
@@ -1626,6 +1747,10 @@ footer {
 
 footer span {
     color: var(--primary);
+}
+
+footer .fa-heart {
+    color: var(--icon-red);
 }
 
 /* ─── MOBILE ─── */
