@@ -463,12 +463,26 @@ section {
 
 .btn-ghost {
     background: transparent;
-    color: var(--bg);
-    border: 1px solid var(--glass-border);
+    color: var(--text);
+    border: 1px solid var(--text);
     backdrop-filter: blur(10px);
 }
 
 .btn-ghost:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+    transform: translateY(-2px);
+    background: rgba(31, 111, 95, 0.05);
+}
+
+.btn-open {
+    background: transparent;
+    color: var(--bg);
+    border: 1px solid var(--bg);
+    backdrop-filter: blur(10px);
+}
+
+.btn-open:hover {
     border-color: var(--primary);
     color: var(--primary);
     transform: translateY(-2px);

@@ -4,12 +4,11 @@
     // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
     "version": "0.2.0",
     "configurations": [
-        
         {
-            "type": "editor-browser",
+            "type": "chrome",
             "request": "launch",
             "name": "Open index.html",
-            "url": "file:///c%3A/Users/LloydAngeloMartinez/Downloads/portfolio/index.html"
+            "url": "file:///c%3A/Users/LloydAngeloMartinez/Desktop/portfolio/index.html"
         }
     ]
 }
