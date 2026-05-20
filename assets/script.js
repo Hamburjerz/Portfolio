@@ -74,10 +74,9 @@ document.querySelectorAll(".skill-fill[data-w]").forEach((bar) => {
 
 // ─── TYPING EFFECT ───
 const words = [
-    "Full-Stack Builder",
-    "UI/UX Thinker",
-    "Electron.js Dev",
-    "MySQL Architect",
+    "Full-stack Development",
+    "Back-end Development",
+    "Front-end Development",
 ];
 let wi = 0,
     ci = 0,
@@ -156,61 +155,61 @@ function openAguaPreview() {
     iframe.srcdoc = `
         <!doctype html>
         <html lang="en">
-          <head>
-            <meta charset="UTF-8" />
-            <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            <style>
-              * { box-sizing: border-box; }
-              body {
-                margin: 0;
-                padding: 24px;
-                background: #030b1a;
-                color: #f7fafc;
-                font-family: Arial, sans-serif;
-              }
-              .gallery {
-                display: grid;
-                gap: 18px;
-                max-width: 1180px;
-                margin: 0 auto;
-              }
-              figure {
-                margin: 0;
-                border: 1px solid rgba(255, 255, 255, 0.14);
-                border-radius: 8px;
-                overflow: hidden;
-                background: rgba(255, 255, 255, 0.04);
-              }
-              img {
-                display: block;
-                width: 100%;
-                max-height: 78vh;
-                object-fit: contain;
-                background: #fff;
-              }
-              figcaption {
-                padding: 12px 14px;
-                font-size: 14px;
-                color: #cbd5e1;
-              }
-            </style>
-          </head>
-          <body>
-            <main class="gallery">
-              <figure>
-                <img src="assets/img/Agua_prototype%20%282%29.jpeg" alt="Agua prototype front view" />
-                <figcaption>Prototype front view</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/img/Agua_prototype%20%283%29.jpeg" alt="Agua prototype top view" />
-                <figcaption>Prototype top view</figcaption>
-              </figure>
-              <figure>
-                <img src="assets/img/wiring%20frame.png" alt="Agua Arduino wiring frame" />
-                <figcaption>Arduino wiring frame with sensor, GSM module, LEDs, and buzzer</figcaption>
-              </figure>
-            </main>
-          </body>
+            <head>
+                <meta charset="UTF-8" />
+                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+                <style>
+                * { box-sizing: border-box; }
+                body {
+                    margin: 0;
+                    padding: 24px;
+                    background: #030b1a;
+                    color: #f7fafc;
+                    font-family: Arial, sans-serif;
+                }
+                .gallery {
+                    display: grid;
+                    gap: 18px;
+                    max-width: 1180px;
+                    margin: 0 auto;
+                }
+                figure {
+                    margin: 0;
+                    border: 1px solid rgba(255, 255, 255, 0.14);
+                    border-radius: 8px;
+                    overflow: hidden;
+                    background: rgba(255, 255, 255, 0.04);
+                }
+                img {
+                    display: block;
+                    width: 100%;
+                    max-height: 78vh;
+                    object-fit: contain;
+                    background: #fff;
+                }
+                figcaption {
+                    padding: 12px 14px;
+                    font-size: 14px;
+                    color: #cbd5e1;
+                }
+                </style>
+            </head>
+            <body>
+                <main class="gallery">
+                <figure>
+                    <img src="assets/img/Agua_prototype%20%282%29.jpeg" alt="Agua prototype front view" />
+                    <figcaption>Prototype front view</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/img/Agua_prototype%20%283%29.jpeg" alt="Agua prototype top view" />
+                    <figcaption>Prototype top view</figcaption>
+                </figure>
+                <figure>
+                    <img src="assets/img/wiring%20frame.png" alt="Agua Arduino wiring frame" />
+                    <figcaption>Arduino wiring frame with sensor, GSM module, LEDs, and buzzer</figcaption>
+                </figure>
+                </main>
+            </body>
         </html>
     `;
     modal.classList.add("open");
