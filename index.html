@@ -41,7 +41,14 @@
         <li><a href="#projects">Projects</a></li>
         <li><a href="#contact">Contact</a></li>
       </ul>
-      <button class="nav-toggle" id="nav-toggle" aria-label="Toggle menu">
+      <button
+        class="nav-toggle"
+        id="nav-toggle"
+        type="button"
+        aria-label="Toggle menu"
+        aria-controls="nav-links"
+        aria-expanded="false"
+      >
         <span></span><span></span><span></span>
       </button>
     </nav>
@@ -797,7 +804,7 @@
     <!-- FULLSCREEN PREVIEW MODAL -->
     <div class="preview-modal" id="preview-modal">
       <div class="modal-header">
-        <div class="browser-dots" style="flex-shrink: 0">
+        <div class="browser-dots">
           <div class="browser-dot bd-r"></div>
           <div class="browser-dot bd-y"></div>
           <div class="browser-dot bd-g"></div>
@@ -807,8 +814,7 @@
           id="modal-ext"
           href="#"
           target="_blank"
-          class="btn btn-open"
-          style="font-size: 0.82rem; padding: 0.4rem 0.9rem; flex-shrink: 0"
+          class="btn btn-open modal-open-link"
           >Open <i class="fas fa-external-link-alt" aria-hidden="true"></i
         ></a>
         <button class="modal-close" onclick="closePreview()">

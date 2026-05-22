@@ -9,11 +9,29 @@ window.addEventListener("load", () => {
 // ─── NAV TOGGLE ───
 const navToggle = document.getElementById("nav-toggle");
 const navLinks = document.getElementById("nav-links");
+
+function setMenuOpen(open) {
+    navLinks.classList.toggle("open", open);
+    navToggle.classList.toggle("open", open);
+    navToggle.setAttribute("aria-expanded", String(open));
+}
+
 navToggle.addEventListener("click", () => {
-    navLinks.classList.toggle("open");
+    setMenuOpen(!navLinks.classList.contains("open"));
 });
 document.querySelectorAll(".nav-links a").forEach((a) => {
-    a.addEventListener("click", () => navLinks.classList.remove("open"));
+    a.addEventListener("click", () => setMenuOpen(false));
+});
+document.addEventListener("click", (e) => {
+    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
+        setMenuOpen(false);
+    }
+});
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenuOpen(false);
+});
+window.addEventListener("resize", () => {
+    if (window.innerWidth > 768) setMenuOpen(false);
 });
 
 // ─── ACTIVE NAV ───
@@ -192,6 +210,18 @@ function openAguaPreview() {
                     font-size: 14px;
                     color: #cbd5e1;
                 }
+                @media (max-width: 640px) {
+                    body {
+                        padding: 12px;
+                    }
+                    .gallery {
+                        gap: 12px;
+                    }
+                    figcaption {
+                        padding: 10px 12px;
+                        font-size: 13px;
+                    }
+                }
                 </style>
             </head>
             <body>
@@ -223,6 +253,11 @@ function closePreview() {
     iframe.removeAttribute("srcdoc");
     document.body.style.overflow = "";
 }
+
+window.openPreview = openPreview;
+window.openAguaPreview = openAguaPreview;
+window.closePreview = closePreview;
+
 document
     .getElementById("preview-modal")
     .addEventListener("click", function (e) {
