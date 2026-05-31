@@ -138,8 +138,60 @@ function openPreview(url, name) {
     document.body.style.overflow = "hidden";
 }
 
+const aguaMarkups = [
+    {
+        src: "assets/img/Agua_prototype (2).jpeg",
+        alt: "Front view concept for the water level monitoring system",
+        caption: "Front view concept",
+    },
+    {
+        src: "assets/img/Agua_prototype (3).jpeg",
+        alt: "Top view concept for the water level monitoring system",
+        caption: "Top view concept",
+    },
+    {
+        src: "assets/img/wiring frame.png",
+        alt: "Arduino wiring diagram for the water level monitoring system",
+        caption: "Arduino wiring diagram",
+    },
+];
+let activeAguaMarkup = 0;
+
+function showAguaMarkup(index) {
+    activeAguaMarkup = (index + aguaMarkups.length) % aguaMarkups.length;
+    const markup = aguaMarkups[activeAguaMarkup];
+    const image = document.getElementById("agua-modal-image");
+    if (!image) return;
+    image.src = markup.src;
+    image.alt = markup.alt;
+    document.getElementById("agua-modal-caption").textContent = markup.caption;
+    document.querySelectorAll(".agua-markup-thumb").forEach((thumb, thumbIndex) => {
+        const isActive = thumbIndex === activeAguaMarkup;
+        thumb.classList.toggle("active", isActive);
+        thumb.setAttribute("aria-pressed", isActive.toString());
+    });
+}
+
+function stepAguaMarkup(direction) {
+    showAguaMarkup(activeAguaMarkup + direction);
+}
+
 function openAguaPreview() {
-    window.open("assets/img/Agua_prototype%20%282%29.jpeg", "_blank", "noopener,noreferrer");
+    const modal = document.getElementById("agua-modal");
+    if (!modal) return;
+    showAguaMarkup(0);
+    modal.classList.add("open");
+    modal.setAttribute("aria-hidden", "false");
+    document.body.style.overflow = "hidden";
+    modal.querySelector(".agua-modal-close")?.focus();
+}
+
+function closeAguaPreview() {
+    const modal = document.getElementById("agua-modal");
+    if (!modal) return;
+    modal.classList.remove("open");
+    modal.setAttribute("aria-hidden", "true");
+    document.body.style.overflow = "";
 }
 
 function closePreview() {
@@ -154,6 +206,9 @@ function closePreview() {
 
 window.openPreview = openPreview;
 if (typeof openAguaPreview === "function") window.openAguaPreview = openAguaPreview;
+window.closeAguaPreview = closeAguaPreview;
+window.showAguaMarkup = showAguaMarkup;
+window.stepAguaMarkup = stepAguaMarkup;
 window.closePreview = closePreview;
 
 document
@@ -162,8 +217,21 @@ document
         if (e.target === this) closePreview();
     });
 document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") closePreview();
+    const aguaModalOpen = document.getElementById("agua-modal")?.classList.contains("open");
+    if (e.key === "Escape") {
+        closePreview();
+        closeAguaPreview();
+    }
+    if (!aguaModalOpen) return;
+    if (e.key === "ArrowLeft") stepAguaMarkup(-1);
+    if (e.key === "ArrowRight") stepAguaMarkup(1);
 });
+
+document
+    .getElementById("agua-modal")
+    ?.addEventListener("click", function (e) {
+        if (e.target === this) closeAguaPreview();
+    });
 
 ["wrap-fra", "wrap-dcc"].forEach((id) => {
     const fbId = "fb-" + id.replace("wrap-", "");

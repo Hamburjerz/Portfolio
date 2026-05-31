@@ -409,8 +409,8 @@
           </div>
           <div class="project-actions">
             <button onclick="openAguaPreview()" class="btn project-preview-btn">
-              <i class="fas fa-desktop" aria-hidden="true"></i>
-              <span>Preview Project</span>
+              <i class="fas fa-images" aria-hidden="true"></i>
+              <span>View Markups</span>
             </button>
           </div>
         </div>
@@ -590,6 +590,48 @@
       HTML · JavaScript · CSS
     </p>
   </footer>
+
+  <div class="agua-modal" id="agua-modal" role="dialog" aria-modal="true" aria-labelledby="agua-modal-title"
+    aria-hidden="true">
+    <div class="agua-modal-panel">
+      <div class="agua-modal-header">
+        <div>
+          <div class="section-tag">IoT Project Markups</div>
+          <h2 id="agua-modal-title">Water Level Monitoring System</h2>
+          <p id="agua-modal-caption">Front view concept</p>
+        </div>
+        <button class="agua-modal-close" type="button" onclick="closeAguaPreview()" aria-label="Close project markups">
+          <i class="fas fa-times" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="agua-modal-stage">
+        <button class="agua-modal-nav agua-modal-prev" type="button" onclick="stepAguaMarkup(-1)"
+          aria-label="Previous markup">
+          <i class="fas fa-chevron-left" aria-hidden="true"></i>
+        </button>
+        <img id="agua-modal-image" src="assets/img/Agua_prototype (2).jpeg"
+          alt="Front view concept for the water level monitoring system" />
+        <button class="agua-modal-nav agua-modal-next" type="button" onclick="stepAguaMarkup(1)"
+          aria-label="Next markup">
+          <i class="fas fa-chevron-right" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="agua-modal-thumbnails" aria-label="Available project markups">
+        <button class="agua-markup-thumb active" type="button" onclick="showAguaMarkup(0)" aria-pressed="true">
+          <img src="assets/img/Agua_prototype (2).jpeg" alt="" />
+          <span>Front View</span>
+        </button>
+        <button class="agua-markup-thumb" type="button" onclick="showAguaMarkup(1)" aria-pressed="false">
+          <img src="assets/img/Agua_prototype (3).jpeg" alt="" />
+          <span>Top View</span>
+        </button>
+        <button class="agua-markup-thumb" type="button" onclick="showAguaMarkup(2)" aria-pressed="false">
+          <img src="assets/img/wiring frame.png" alt="" />
+          <span>Wiring Diagram</span>
+        </button>
+      </div>
+    </div>
+  </div>
 
   <script src="assets/script.js"></script>
 </body>

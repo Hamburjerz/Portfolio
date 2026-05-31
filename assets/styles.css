@@ -1970,7 +1970,178 @@ section {
     }
 }
 
-/* ─── FOOTER ─── */
+/* --- IOT MARKUP MODAL --- */
+.agua-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 220;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    padding: clamp(0.75rem, 3vw, 2rem);
+    background: rgba(0, 0, 0, 0.88);
+    backdrop-filter: blur(16px);
+}
+
+.agua-modal.open {
+    display: flex;
+}
+
+.agua-modal-panel {
+    width: min(1120px, 100%);
+    max-height: 94vh;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: clamp(0.85rem, 2vw, 1.25rem);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: linear-gradient(145deg, #050505, #171717);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+}
+
+.agua-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.agua-modal-header h2 {
+    margin: 0.3rem 0 0.15rem;
+    color: white;
+    font-family: "Rajdhani", sans-serif;
+    font-size: clamp(1.35rem, 3vw, 2rem);
+}
+
+.agua-modal-header p {
+    margin: 0;
+    color: rgba(255, 255, 255, 0.68);
+    font: 500 0.72rem "JetBrains Mono", monospace;
+}
+
+.agua-modal-close,
+.agua-modal-nav {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    background: linear-gradient(135deg, rgba(12, 12, 12, 0.94), rgba(48, 48, 48, 0.9));
+    color: white;
+    cursor: pointer;
+    transition: all 0.25s ease;
+}
+
+.agua-modal-close:hover,
+.agua-modal-nav:hover {
+    border-color: rgba(255, 255, 255, 0.82);
+    background: linear-gradient(135deg, #202020, #444);
+}
+
+.agua-modal-close {
+    width: 40px;
+    height: 40px;
+    flex: 0 0 auto;
+}
+
+.agua-modal-stage {
+    position: relative;
+    display: flex;
+    min-height: 0;
+    flex: 1 1 auto;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.agua-modal-stage img {
+    display: block;
+    width: 100%;
+    height: min(58vh, 680px);
+    object-fit: contain;
+    background: white;
+}
+
+.agua-modal-nav {
+    position: absolute;
+    top: 50%;
+    z-index: 2;
+    width: 42px;
+    height: 54px;
+    transform: translateY(-50%);
+}
+
+.agua-modal-prev {
+    left: 0.7rem;
+}
+
+.agua-modal-next {
+    right: 0.7rem;
+}
+
+.agua-modal-thumbnails {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.65rem;
+}
+
+.agua-markup-thumb {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    padding: 0.45rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    background: rgba(255, 255, 255, 0.04);
+    color: rgba(255, 255, 255, 0.75);
+    cursor: pointer;
+    font: 500 0.67rem "JetBrains Mono", monospace;
+    text-align: left;
+    transition: all 0.25s ease;
+}
+
+.agua-markup-thumb:hover,
+.agua-markup-thumb.active {
+    border-color: rgba(255, 255, 255, 0.68);
+    background: rgba(255, 255, 255, 0.12);
+    color: white;
+}
+
+.agua-markup-thumb img {
+    width: 68px;
+    height: 44px;
+    flex: 0 0 auto;
+    object-fit: cover;
+    background: white;
+}
+
+@media (max-width: 560px) {
+    .agua-modal-panel {
+        max-height: 96vh;
+    }
+
+    .agua-modal-stage img {
+        height: 52vh;
+    }
+
+    .agua-markup-thumb {
+        justify-content: center;
+        padding: 0.35rem;
+    }
+
+    .agua-markup-thumb img {
+        width: 100%;
+        height: 48px;
+    }
+
+    .agua-markup-thumb span {
+        display: none;
+    }
+}
+
+/* --- FOOTER --- */
 @media (max-width: 900px) {
     .project-card-featured {
         grid-column: span 1;
