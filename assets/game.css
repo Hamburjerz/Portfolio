@@ -1,0 +1,490 @@
+:root {
+  --mint: #70ffd1;
+  --lime: #d5ff6f;
+  --ink: #061512;
+  --line: rgba(112, 255, 209, .24);
+  --muted: rgba(231, 255, 248, .68);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body,
+.game-shell {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+
+body {
+  background: var(--ink);
+  color: #f2fffb;
+  font-family: "Outfit", sans-serif;
+}
+
+canvas {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.top-hud,
+.mission,
+.profile,
+.controls,
+.prompt,
+.touch-controls {
+  position: absolute;
+  z-index: 3;
+}
+
+.top-hud {
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  background: linear-gradient(#03120fee, transparent);
+}
+
+.brand {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  font: 700 16px "Rajdhani";
+  letter-spacing: .14em;
+}
+
+.brand b {
+  display: grid;
+  width: 42px;
+  height: 42px;
+  place-items: center;
+  border: 1px solid var(--line);
+  color: var(--mint);
+  font: 700 14px "JetBrains Mono";
+}
+
+.brand small,
+.profile small {
+  display: block;
+  color: var(--muted);
+  font: 500 9px "JetBrains Mono";
+  letter-spacing: .12em;
+}
+
+.top-hud a,
+.actions a,
+.actions button {
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  color: var(--mint);
+  background: #031411aa;
+  text-decoration: none;
+  font: 700 10px "JetBrains Mono";
+}
+
+.top-hud a i,
+.controls i,
+.mission small i {
+  margin-right: 6px;
+}
+
+.mission,
+.profile {
+  top: 92px;
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #061c18dc;
+  backdrop-filter: blur(10px);
+}
+
+.mission {
+  left: 28px;
+  width: 260px;
+}
+
+.mission small,
+.overlay small {
+  color: var(--mint);
+  font: 700 10px "JetBrains Mono";
+  letter-spacing: .18em;
+}
+
+h1,
+h2 {
+  margin: 8px 0;
+  font-family: "Rajdhani";
+  line-height: .95;
+}
+
+h1 {
+  font-size: 31px;
+}
+
+h2 {
+  font-size: 54px;
+}
+
+em {
+  color: var(--mint);
+  font-style: normal;
+}
+
+.track {
+  height: 4px;
+  margin-top: 17px;
+  background: #70ffd11c;
+}
+
+.track i {
+  display: block;
+  width: 0;
+  height: 100%;
+  background: var(--mint);
+  transition: .25s;
+}
+
+.mission p,
+.profile p {
+  color: var(--muted);
+  font: 700 10px "JetBrains Mono";
+  letter-spacing: .05em;
+}
+
+.profile p i {
+  width: 15px;
+  color: var(--mint);
+  text-align: center;
+}
+
+.profile {
+  right: 28px;
+  width: 190px;
+}
+
+.profile img {
+  width: 42px;
+  height: 42px;
+  border: 1px solid var(--mint);
+  border-radius: 50%;
+  object-fit: cover;
+  float: left;
+  margin-right: 10px;
+}
+
+.profile strong {
+  display: block;
+  font: 700 17px "Rajdhani";
+  letter-spacing: .12em;
+}
+
+.profile p:first-of-type {
+  clear: both;
+  padding-top: 12px;
+}
+
+.profile p {
+  display: flex;
+  justify-content: space-between;
+}
+
+.profile b {
+  color: var(--lime);
+}
+
+.controls {
+  bottom: 20px;
+  left: 28px;
+  color: var(--muted);
+  font: 700 10px "JetBrains Mono";
+}
+
+.controls kbd {
+  color: var(--mint);
+}
+
+.prompt {
+  left: 50%;
+  bottom: 45px;
+  transform: translateX(-50%);
+  padding: 10px 14px;
+  border: 1px solid var(--mint);
+  background: #031411ee;
+  opacity: 0;
+  color: white;
+  font: 700 11px "JetBrains Mono";
+  transition: .2s;
+}
+
+.prompt.show {
+  opacity: 1;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  z-index: 8;
+  display: grid;
+  place-items: center;
+  background: #02100dba;
+  backdrop-filter: blur(8px);
+}
+
+.overlay.hidden {
+  display: none;
+}
+
+.overlay article {
+  position: relative;
+  width: min(92vw, 510px);
+  padding: 32px;
+  border: 1px solid var(--line);
+  background: #061c18f5;
+  box-shadow: 0 20px 80px #0006;
+}
+
+.overlay#start-screen article {
+  text-align: center;
+}
+
+.overlay p {
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.overlay button {
+  cursor: pointer;
+}
+
+.overlay article>button:not(.close) {
+  padding: 12px 16px;
+  border: 1px solid var(--mint);
+  background: var(--mint);
+  color: #052019;
+  font: 700 12px "JetBrains Mono";
+}
+
+.close {
+  position: absolute;
+  top: 10px;
+  right: 13px;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 20px;
+}
+
+.tags,
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 16px;
+}
+
+.tags span {
+  padding: 5px 7px;
+  border: 1px solid var(--line);
+  color: var(--mint);
+  font: 700 10px "JetBrains Mono";
+}
+
+.touch-controls {
+  display: none;
+}
+
+@media(max-width:650px) {
+  .top-hud {
+    padding: 10px 12px
+  }
+
+  .top-hud a {
+    display: none
+  }
+
+  .brand {
+    gap: 8px;
+    font-size: 14px
+  }
+
+  .brand b {
+    width: 36px;
+    height: 36px
+  }
+
+  .brand small {
+    font-size: 7px
+  }
+
+  .mission {
+    top: 60px;
+    left: 10px;
+    width: 188px;
+    padding: 10px
+  }
+
+  .mission h1 {
+    font-size: 21px
+  }
+
+  .mission small {
+    font-size: 8px
+  }
+
+  .mission p {
+    margin-bottom: 0;
+    font-size: 8px
+  }
+
+  .profile {
+    top: 60px;
+    right: 10px;
+    width: 111px;
+    padding: 8px
+  }
+
+  .profile img,
+  .profile strong,
+  .profile small {
+    display: none
+  }
+
+  .profile p:first-of-type {
+    padding-top: 0
+  }
+
+  .profile p {
+    margin: 4px 0;
+    font-size: 7px
+  }
+
+  .profile p i {
+    width: 12px
+  }
+
+  .controls {
+    display: none
+  }
+
+  .prompt {
+    bottom: 126px;
+    max-width: 92vw;
+    padding: 8px 10px;
+    white-space: nowrap;
+    font-size: 9px
+  }
+
+  .overlay article {
+    padding: 23px
+  }
+
+  .overlay p {
+    font-size: 14px
+  }
+
+  h2 {
+    font-size: 44px
+  }
+
+  .touch-controls {
+    right: max(12px, env(safe-area-inset-right));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    left: max(12px, env(safe-area-inset-left));
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    pointer-events: none
+  }
+
+  .dpad {
+    display: grid;
+    grid-template-columns: repeat(3, 44px);
+    grid-template-rows: repeat(2, 44px);
+    pointer-events: auto
+  }
+
+  .touch-button {
+    border: 1px solid var(--line);
+    background: #031411d9;
+    color: var(--mint);
+    touch-action: none;
+    -webkit-tap-highlight-color: transparent
+  }
+
+  .touch-button:active,
+  .touch-button.active {
+    border-color: var(--lime);
+    background: #70ffd12e;
+    color: var(--lime)
+  }
+
+  .dpad-up {
+    grid-column: 2
+  }
+
+  .dpad-left {
+    grid-column: 1;
+    grid-row: 2
+  }
+
+  .dpad-down {
+    grid-column: 2;
+    grid-row: 2
+  }
+
+  .dpad-right {
+    grid-column: 3;
+    grid-row: 2
+  }
+
+  .interact-button {
+    display: grid;
+    width: 72px;
+    height: 72px;
+    place-items: center;
+    border-radius: 50%;
+    pointer-events: auto;
+    font-size: 20px
+  }
+
+  .interact-button span {
+    display: block;
+    font: 700 7px "JetBrains Mono"
+  }
+}
+
+@media(max-height:520px) and (max-width:900px) {
+  .mission {
+    top: 56px;
+    width: 174px
+  }
+
+  .mission h1 {
+    font-size: 18px
+  }
+
+  .profile {
+    top: 56px
+  }
+
+  .prompt {
+    bottom: 90px
+  }
+
+  .dpad {
+    grid-template-columns: repeat(3, 36px);
+    grid-template-rows: repeat(2, 36px)
+  }
+
+  .interact-button {
+    width: 58px;
+    height: 58px;
+    font-size: 16px
+  }
+}

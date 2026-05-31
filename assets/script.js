@@ -6,34 +6,6 @@ window.addEventListener("load", () => {
     }, 2000);
 });
 
-// ─── NAV TOGGLE ───
-const navToggle = document.getElementById("nav-toggle");
-const navLinks = document.getElementById("nav-links");
-
-function setMenuOpen(open) {
-    navLinks.classList.toggle("open", open);
-    navToggle.classList.toggle("open", open);
-    navToggle.setAttribute("aria-expanded", String(open));
-}
-
-navToggle.addEventListener("click", () => {
-    setMenuOpen(!navLinks.classList.contains("open"));
-});
-document.querySelectorAll(".nav-links a").forEach((a) => {
-    a.addEventListener("click", () => setMenuOpen(false));
-});
-document.addEventListener("click", (e) => {
-    if (!navLinks.contains(e.target) && !navToggle.contains(e.target)) {
-        setMenuOpen(false);
-    }
-});
-document.addEventListener("keydown", (e) => {
-    if (e.key === "Escape") setMenuOpen(false);
-});
-window.addEventListener("resize", () => {
-    if (window.innerWidth > 768) setMenuOpen(false);
-});
-
 // ─── ACTIVE NAV ───
 const sections = document.querySelectorAll("section[id]");
 const navAs = document.querySelectorAll(".nav-links a");
@@ -101,6 +73,7 @@ let wi = 0,
     deleting = false;
 const typEl = document.getElementById("typing-text");
 function type() {
+    if (!typEl) return;
     const word = words[wi];
     if (deleting) {
         typEl.textContent = word.substring(0, ci--);
@@ -121,7 +94,7 @@ function type() {
         setTimeout(type, 90);
     }
 }
-setTimeout(type, 2200);
+if (typEl) setTimeout(type, 2200);
 
 // ─── COUNTER ANIMATION ───
 function animateCounter(el, target) {
@@ -152,6 +125,10 @@ if (heroStats) counterObs.observe(heroStats);
 // ─── LIVE PREVIEW MODAL ───
 function openPreview(url, name) {
     const modal = document.getElementById("preview-modal");
+    if (!modal) {
+        window.open(url, "_blank", "noopener,noreferrer");
+        return;
+    }
     document.getElementById("modal-url").textContent = url;
     document.getElementById("modal-ext").href = url;
     const iframe = document.getElementById("modal-iframe");
@@ -162,105 +139,26 @@ function openPreview(url, name) {
 }
 
 function openAguaPreview() {
-    const modal = document.getElementById("preview-modal");
-    const iframe = document.getElementById("modal-iframe");
-    const firstImage = "assets/img/Agua_prototype%20%282%29.jpeg";
-
-    document.getElementById("modal-url").textContent =
-        "Agua prototype image preview";
-    document.getElementById("modal-ext").href = firstImage;
-    iframe.src = "about:blank";
-    iframe.srcdoc = `
-        <!doctype html>
-        <html lang="en">
-            <head>
-                <meta charset="UTF-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-                <style>
-                * { box-sizing: border-box; }
-                body {
-                    margin: 0;
-                    padding: 24px;
-                    background: #030b1a;
-                    color: #f7fafc;
-                    font-family: Arial, sans-serif;
-                }
-                .gallery {
-                    display: grid;
-                    gap: 18px;
-                    max-width: 1180px;
-                    margin: 0 auto;
-                }
-                figure {
-                    margin: 0;
-                    border: 1px solid rgba(255, 255, 255, 0.14);
-                    border-radius: 8px;
-                    overflow: hidden;
-                    background: rgba(255, 255, 255, 0.04);
-                }
-                img {
-                    display: block;
-                    width: 100%;
-                    max-height: 78vh;
-                    object-fit: contain;
-                    background: #fff;
-                }
-                figcaption {
-                    padding: 12px 14px;
-                    font-size: 14px;
-                    color: #cbd5e1;
-                }
-                @media (max-width: 640px) {
-                    body {
-                        padding: 12px;
-                    }
-                    .gallery {
-                        gap: 12px;
-                    }
-                    figcaption {
-                        padding: 10px 12px;
-                        font-size: 13px;
-                    }
-                }
-                </style>
-            </head>
-            <body>
-                <main class="gallery">
-                <figure>
-                    <img src="assets/img/Agua_prototype%20%282%29.jpeg" alt="Agua prototype front view" />
-                    <figcaption>Prototype front view</figcaption>
-                </figure>
-                <figure>
-                    <img src="assets/img/Agua_prototype%20%283%29.jpeg" alt="Agua prototype top view" />
-                    <figcaption>Prototype top view</figcaption>
-                </figure>
-                <figure>
-                    <img src="assets/img/wiring%20frame.png" alt="Agua Arduino wiring frame" />
-                    <figcaption>Arduino wiring frame with sensor, GSM module, LEDs, and buzzer</figcaption>
-                </figure>
-                </main>
-            </body>
-        </html>
-    `;
-    modal.classList.add("open");
-    document.body.style.overflow = "hidden";
+    window.open("assets/img/Agua_prototype%20%282%29.jpeg", "_blank", "noopener,noreferrer");
 }
 
 function closePreview() {
     const iframe = document.getElementById("modal-iframe");
-    document.getElementById("preview-modal").classList.remove("open");
+    const modal = document.getElementById("preview-modal");
+    if (!iframe || !modal) return;
+    modal.classList.remove("open");
     iframe.src = "";
     iframe.removeAttribute("srcdoc");
     document.body.style.overflow = "";
 }
 
 window.openPreview = openPreview;
-window.openAguaPreview = openAguaPreview;
+if (typeof openAguaPreview === "function") window.openAguaPreview = openAguaPreview;
 window.closePreview = closePreview;
 
 document
     .getElementById("preview-modal")
-    .addEventListener("click", function (e) {
+    ?.addEventListener("click", function (e) {
         if (e.target === this) closePreview();
     });
 document.addEventListener("keydown", (e) => {
@@ -308,7 +206,7 @@ document.querySelectorAll(".filter-btn").forEach((btn) => {
         const filter = this.dataset.filter;
         document.querySelectorAll(".project-card").forEach((card) => {
             if (filter === "all" || card.dataset.cat === filter) {
-                card.style.display = "block";
+                card.style.display = "";
                 card.style.opacity = "0";
                 setTimeout(() => {
                     card.style.transition = "opacity .4s";
