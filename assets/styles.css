@@ -1026,26 +1026,6 @@ section {
     font-size: 1.4rem;
 }
 
-.project-card[data-cat="edu"] .project-icon {
-    background: rgba(31, 111, 95, 0.12);
-}
-
-.project-card[data-cat="desktop"] .project-icon {
-    background: rgba(31, 111, 95, 0.12);
-}
-
-.project-card[data-cat="cms"] .project-icon {
-    background: rgba(31, 111, 95, 0.12);
-}
-
-.project-card[data-cat="web"] .project-icon {
-    background: rgba(31, 111, 95, 0.12);
-}
-
-.project-card[data-cat="iot"] .project-icon {
-    background: rgba(31, 111, 95, 0.12);
-}
-
 .project-links {
     display: flex;
     gap: 0.5rem;
@@ -2200,14 +2180,16 @@ footer .fa-heart {
 }
 
 .projects-grid {
-    grid-template-columns: repeat(12, 1fr);
-    grid-auto-rows: 220px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: auto;
     gap: 1rem;
 }
 
 .project-card {
-    grid-column: span 4;
-    min-height: 220px;
+    grid-column: span 1;
+    min-height: 340px;
+    display: flex;
+    flex-direction: column;
     padding: 1.2rem;
     overflow: hidden;
     isolation: isolate;
@@ -2216,12 +2198,12 @@ footer .fa-heart {
 }
 
 .project-card-lead {
-    grid-column: span 8;
-    grid-row: span 2;
+    grid-column: span 1;
+    grid-row: auto;
 }
 
 .project-card-wide {
-    grid-column: span 8;
+    grid-column: span 1;
 }
 
 .project-gallery-media {
@@ -2240,6 +2222,10 @@ footer .fa-heart {
     transform-origin: top center;
 }
 
+.project-card-thesis .project-gallery-iframe {
+    width: calc(100% + 18px);
+}
+
 .project-card-lead .project-gallery-media {
     object-position: top center;
 }
@@ -2249,7 +2235,7 @@ footer .fa-heart {
     position: absolute;
     inset: 0;
     z-index: -2;
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.04) 20%, rgba(0, 0, 0, 0.96) 100%);
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.18) 16%, rgba(0, 0, 0, 0.72) 52%, rgba(0, 0, 0, 0.98) 100%);
 }
 
 .project-card:hover .project-gallery-media {
@@ -2276,55 +2262,8 @@ footer .fa-heart {
     object-position: center top;
 }
 
-.project-card-cabcy::after {
-    background: linear-gradient(180deg, rgba(0, 0, 0, 0.02) 24%, rgba(0, 0, 0, 0.36) 52%, rgba(0, 0, 0, 0.97) 100%);
-}
-
-.project-card-cabcy {
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-}
-
 .project-card-cabcy .project-gallery-media {
     object-position: center top;
-}
-
-.project-card-cabcy .project-header {
-    position: absolute;
-    top: 1.2rem;
-    right: 1.2rem;
-    left: 1.2rem;
-}
-
-.project-card-cabcy .project-name,
-.project-card-cabcy .project-desc,
-.project-card-cabcy .project-stack {
-    max-width: 760px;
-}
-
-.project-card-cabcy .project-desc {
-    max-width: 680px;
-    -webkit-line-clamp: 2;
-}
-
-.project-card-cabcy .project-cabcy-btn {
-    border-color: rgba(255, 255, 255, 0.44);
-    background: linear-gradient(135deg, rgba(18, 18, 18, 0.96), rgba(52, 52, 52, 0.9));
-    color: white;
-    text-decoration: none;
-}
-
-.project-card-cabcy .project-cabcy-btn:hover {
-    border-color: rgba(255, 255, 255, 0.82);
-    background: linear-gradient(135deg, #202020, #444);
-}
-
-.project-card-girk::after,
-.project-card-water::after {
-    background:
-        linear-gradient(90deg, rgba(0, 0, 0, 0.96) 0%, rgba(0, 0, 0, 0.8) 56%, rgba(0, 0, 0, 0.32) 100%),
-        linear-gradient(180deg, rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.9));
 }
 
 .project-card-girk .project-gallery-media {
@@ -2339,37 +2278,12 @@ footer .fa-heart {
     object-position: center top;
 }
 
-.project-card-thesis::after {
-    background: transparent;
-}
-
 .project-card-thesis {
     grid-row: auto;
 }
 
 .project-card-thesis .project-gallery-media {
     object-position: center 54%;
-}
-
-.project-card-thesis .project-header {
-    margin-bottom: 0.55rem;
-}
-
-.project-card-thesis .project-name {
-    margin-bottom: 0.2rem;
-}
-
-.project-card-thesis .project-desc,
-.project-card-thesis .thesis-status {
-    max-width: 72%;
-}
-
-.project-card-thesis .project-desc {
-    margin-bottom: 0.35rem;
-}
-
-.project-card-thesis .project-stack {
-    display: none;
 }
 
 .project-live-badge {
@@ -2424,8 +2338,13 @@ footer .fa-heart {
 
 .project-card .project-icon {
     border: 1px solid rgba(255, 255, 255, 0.28);
-    background: rgba(0, 0, 0, 0.48);
+    background: linear-gradient(135deg, rgba(12, 12, 12, 0.92), rgba(40, 40, 40, 0.86));
     color: white;
+}
+
+.project-card .project-icon i {
+    color: currentColor;
+    font-size: 1.15rem;
 }
 
 .project-card .project-link {
@@ -2463,7 +2382,12 @@ footer .fa-heart {
     display: none;
 }
 
+.project-card .thesis-status {
+    display: none;
+}
+
 .project-card .project-stack {
+    margin-top: auto;
     padding-top: 0.65rem;
     border-color: rgba(255, 255, 255, 0.2);
 }
@@ -2480,38 +2404,25 @@ footer .fa-heart {
     background: linear-gradient(135deg, rgba(12, 12, 12, 0.92), rgba(40, 40, 40, 0.86));
     box-shadow: none;
     color: white;
-}
-
-.project-card .project-live-btn {
-    border-color: rgba(255, 255, 255, 0.44);
-    background: linear-gradient(135deg, rgba(18, 18, 18, 0.96), rgba(52, 52, 52, 0.9));
     text-decoration: none;
 }
 
-.project-card .project-live-btn:hover {
+.project-card .project-preview-btn:hover {
     border-color: rgba(255, 255, 255, 0.82);
     background: linear-gradient(135deg, #202020, #444);
 }
 
-.project-card > div[style] {
-    margin-top: 0.7rem !important;
-    padding-top: 0.7rem !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-}
-
-.project-card-thesis > div[style] {
-    position: absolute;
-    right: 1.2rem;
-    bottom: 1.2rem;
-    margin-top: 0 !important;
-    padding-top: 0 !important;
-    border-top: 0 !important;
+.project-actions {
+    position: relative;
+    z-index: 2;
+    margin-top: 0.7rem;
+    padding-top: 0.7rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
 }
 
 @media (max-width: 900px) {
     .projects-grid {
         grid-template-columns: repeat(2, minmax(0, 1fr));
-        grid-auto-rows: auto;
     }
 
     .project-card,
@@ -2523,33 +2434,9 @@ footer .fa-heart {
     }
 
     .project-card-lead {
-        grid-column: span 2;
-        min-height: 390px;
+        min-height: 290px;
     }
 
-    .project-card-cabcy .project-name,
-    .project-card-cabcy .project-desc,
-    .project-card-cabcy .project-stack {
-        max-width: none;
-    }
-
-    .project-card-thesis .project-desc,
-    .project-card-thesis .thesis-status {
-        max-width: none;
-    }
-
-    .project-card-thesis .project-stack {
-        display: flex;
-    }
-
-    .project-card-thesis > div[style] {
-        position: relative;
-        right: auto;
-        bottom: auto;
-        margin-top: 0.7rem !important;
-        padding-top: 0.7rem !important;
-        border-top: 1px solid rgba(255, 255, 255, 0.2) !important;
-    }
 }
 
 @media (max-width: 560px) {
